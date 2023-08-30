@@ -36,7 +36,7 @@ const CheckIfDetect = async () => {
     }
     try {
       const response = await axios.request(options)
-      console.log(response.data)
+      // console.log(response.data)
       TextFromLangTranslate.value = response.data.data.detections[0].language
       detectedLang.value = response.data.data.detections[0].language
     } catch (error) {
@@ -68,7 +68,7 @@ const GetTranslate = async () => {
     if (TextInput.value != '') {
       try {
         const response = await axios.request(options)
-        console.log(response.data.data.translations.translatedText)
+        // console.log(response.data.data.translations.translatedText)
         TextOutput.value = response.data.data.translations.translatedText
       } catch (error) {
         console.error(error)

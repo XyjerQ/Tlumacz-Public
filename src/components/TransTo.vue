@@ -21,7 +21,7 @@ const options = {
 fetch(url, options)
   .then((response) => response.json())
   .then((response) => {
-    console.log(response.languages)
+    // console.log(response.languages)
     if (response.languages != undefined) {
       response.languages.forEach((element: object) => {
         languages.push(element)
@@ -30,12 +30,12 @@ fetch(url, options)
   })
 
 const trans = () => {
-  console.log(transTo.value)
+  // console.log(transTo.value)
   emit('transTo', transTo.value)
 }
 
 const switchlang = () => {
-  console.log(prop.transFrom)
+  // console.log(prop.transFrom)
   transTo.value = prop.transFrom
   emit('transTo', prop.transFrom)
 }

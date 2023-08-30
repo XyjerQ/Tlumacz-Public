@@ -22,7 +22,7 @@ const options = {
 fetch(url, options)
   .then((response) => response.json())
   .then((response) => {
-    console.log(response.languages)
+    // console.log(response.languages)
     if (response.languages == undefined) {
       alert('API has reached a limit. Sorry.')
     } else {
@@ -33,12 +33,12 @@ fetch(url, options)
   })
 
 const trans = () => {
-  console.log(transFrom.value)
+  // console.log(transFrom.value)
   emit('transFrom', transFrom.value)
 }
 
 const switchlang = () => {
-  console.log(prop.transTo)
+  // console.log(prop.transTo)
   transFrom.value = prop.transTo
   emit('transFrom', prop.transTo)
 }
