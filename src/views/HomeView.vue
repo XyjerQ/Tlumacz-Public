@@ -169,7 +169,6 @@ html {
   }
   .select {
     position: relative;
-    padding-bottom: 5px;
     display: flex;
     width: 100%;
     border-bottom: 1px solid;
@@ -189,41 +188,11 @@ html {
 html[data-bs-theme='dark'] {
   --bs-body-bg: #1f2124;
   select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
     background: #1f2124;
-    background-image: none;
-    flex: 1;
-    padding: 0 0.5em;
     color: #fff;
-    cursor: pointer;
-    font-size: 1em;
-  }
-  select::-ms-expand {
-    display: none;
-  }
-  .select {
-    position: relative;
-    padding-bottom: 5px;
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid;
-    overflow: hidden;
   }
   .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: -15px;
-    padding: 0 1em;
     background: #1f2124;
-    cursor: pointer;
-    pointer-events: none;
   }
 }
 .backPg {
