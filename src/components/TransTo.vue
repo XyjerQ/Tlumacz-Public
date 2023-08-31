@@ -46,11 +46,13 @@ defineExpose({
 </script>
 
 <template>
-  <select name="lang" id="getlanguages" @change="trans()" v-model="transTo">
-    <option v-for="language in languages" :key="language.language" :value="language.language">
-      {{ language.name }}
-    </option>
-  </select>
+  <div class="select">
+    <select name="lang" id="getlanguages" @change="trans()" v-model="transTo">
+      <option v-for="language in languages" :key="language.language" :value="language.language">
+        {{ language.name }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <style scoped></style>

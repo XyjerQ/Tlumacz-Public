@@ -39,8 +39,10 @@ const trans = () => {
 
 const switchlang = () => {
   // console.log(prop.transTo)
-  transFrom.value = prop.transTo
-  emit('transFrom', prop.transTo)
+  if (transFrom.value != prop.transTo) {
+    transFrom.value = prop.transTo
+    emit('transFrom', prop.transTo)
+  }
 }
 
 const detect = () => {
@@ -63,13 +65,15 @@ defineExpose({
 </script>
 
 <template>
-  <select name="lang" id="getlanguages" @change="trans()" v-model="transFrom">
-    <option v-if="displayDetected == ''" value="detectLang">Detect language</option>
-    <option v-else value="detectLang">{{ displayDetected }}</option>
-    <option v-for="language in languages" :key="language.language" :value="language.language">
-      {{ language.name }}
-    </option>
-  </select>
+  <div class="select">
+    <select name="lang" id="getlanguages" @change="trans()" v-model="transFrom">
+      <option v-if="displayDetected == ''" value="detectLang">Detect language</option>
+      <option v-else value="detectLang">{{ displayDetected }}</option>
+      <option v-for="language in languages" :key="language.language" :value="language.language">
+        {{ language.name }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <style scoped></style>

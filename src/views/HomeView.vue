@@ -40,7 +40,7 @@ const CheckIfDetect = async () => {
       TextFromLangTranslate.value = response.data.data.detections[0].language
       detectedLang.value = response.data.data.detections[0].language
     } catch (error) {
-      console.error(error)
+      // console.error(error)
     }
     GetTranslate()
   } else {
@@ -71,7 +71,7 @@ const GetTranslate = async () => {
         // console.log(response.data.data.translations.translatedText)
         TextOutput.value = response.data.data.translations.translatedText
       } catch (error) {
-        console.error(error)
+        // console.error(error)
         alert('API has reached a limit. Sorry.')
       }
     }
@@ -84,7 +84,7 @@ const transFrom = (langFrom: string) => {
 }
 const transTo = (langTo: string) => {
   TextToLang.value = langTo
-  CheckIfDetect()
+  // CheckIfDetect()
 }
 const switchlang = () => {
   TextInput.value = TextOutput.value
@@ -133,6 +133,7 @@ const resize = () => {
               @keydown="resize()"
               @change="resize()"
               maxlength="2000"
+              placeholder="Type something here..."
             />
             <span>{{ numberOfSymbols }} / 2000</span>
           </div>
@@ -145,7 +146,86 @@ const resize = () => {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+html {
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: var(--bs-light);
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5em;
+    color: #000000;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  .select {
+    position: relative;
+    padding-bottom: 5px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid;
+    overflow: hidden;
+  }
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: -15px;
+    padding: 0 1em;
+    background: white;
+    cursor: pointer;
+    pointer-events: none;
+  }
+}
+html[data-bs-theme='dark'] {
+  --bs-body-bg: #1f2124;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #1f2124;
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  .select {
+    position: relative;
+    padding-bottom: 5px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid;
+    overflow: hidden;
+  }
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: -15px;
+    padding: 0 1em;
+    background: #1f2124;
+    cursor: pointer;
+    pointer-events: none;
+  }
+}
 .backPg {
   height: 60vh;
   justify-content: center;
@@ -189,7 +269,7 @@ const resize = () => {
 }
 .textInOut {
   min-width: 90vw;
-  padding-top: 0px;
+  padding-top: 5px;
   display: flex;
   font-size: 1.5rem;
   min-height: 165px;
@@ -204,7 +284,7 @@ const resize = () => {
     padding-inline: 15px;
     text-align: right;
     textarea {
-      min-height: 100px;
+      min-height: 130px;
       border: 0px;
       background: none;
       width: 100%;
@@ -227,6 +307,7 @@ const resize = () => {
     padding: 15px;
     text-align: left;
     textarea {
+      min-height: 130px;
       width: 100%;
       border: 0px;
       background: none;
@@ -241,7 +322,8 @@ const resize = () => {
 
 @media only screen and (max-width: 1100px) {
   .langSelect {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    padding-bottom: 38px;
     .switchLang {
       button {
         font-size: 20px;
@@ -249,35 +331,63 @@ const resize = () => {
     }
   }
   .textInOut {
-    display: grid;
+    display: flex;
+    justify-content: center;
     font-size: 1.25rem;
     .textIn {
-      width: 100%;
-      margin-right: 0px;
-      margin-bottom: 7px;
       span {
         font-size: 0.9rem;
       }
     }
     .textOut {
-      width: 100%;
-      margin-left: 0px;
-      margin-top: 7px;
-      min-height: 127px;
+      min-height: 184.4px;
     }
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 700px) {
+  .backPg {
+    display: block;
+    .content {
+      max-width: 100vw;
+    }
+  }
   .langSelect {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    padding-bottom: 35px;
     .switchLang {
       button {
-        font-size: 17px;
+        font-size: 20px;
       }
     }
   }
   .textInOut {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    display: contents;
+    .textIn {
+      width: 100%;
+      border-inline: 0px;
+      border-radius: 0px;
+      margin-bottom: 0px;
+      margin-right: 0px;
+    }
+    .textOut {
+      width: 100%;
+      border-inline: 0px;
+      border-top: 0px;
+      border-radius: 0px;
+      margin-top: 0px;
+      margin-left: 0px;
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .langSelect {
+    font-size: 0.85rem;
+    .switchLang {
+      button {
+        font-size: 18px;
+      }
+    }
   }
 }
 </style>
