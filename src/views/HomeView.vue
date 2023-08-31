@@ -201,7 +201,7 @@ html[data-bs-theme='dark'] {
   display: flex;
   .content {
     text-align: center;
-    max-width: 1100px;
+    max-width: 1350px;
     padding-top: 30px;
   }
 }
@@ -237,8 +237,8 @@ html[data-bs-theme='dark'] {
   }
 }
 .textInOut {
-  max-width: 1100px;
-  min-width: 1100px;
+  max-width: 1350px;
+  min-width: 1350px;
   padding-top: 5px;
   display: flex;
   font-size: 1.5rem;
@@ -290,7 +290,7 @@ html[data-bs-theme='dark'] {
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   .backPg {
     .content {
       max-width: 90vw;
