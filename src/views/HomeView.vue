@@ -201,7 +201,7 @@ html[data-bs-theme='dark'] {
   display: flex;
   .content {
     text-align: center;
-    max-width: 90vw;
+    max-width: 1100px;
     padding-top: 30px;
   }
 }
@@ -237,7 +237,8 @@ html[data-bs-theme='dark'] {
   }
 }
 .textInOut {
-  min-width: 90vw;
+  max-width: 1100px;
+  min-width: 1100px;
   padding-top: 5px;
   display: flex;
   font-size: 1.5rem;
@@ -289,7 +290,12 @@ html[data-bs-theme='dark'] {
   }
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
+  .backPg {
+    .content {
+      max-width: 90vw;
+    }
+  }
   .langSelect {
     font-size: 1.2rem;
     padding-bottom: 38px;
@@ -300,6 +306,8 @@ html[data-bs-theme='dark'] {
     }
   }
   .textInOut {
+    min-width: 90vw;
+
     display: flex;
     justify-content: center;
     font-size: 1.25rem;
